@@ -46,82 +46,6 @@ CoxFlex<-function (data, Type, variables, TD, NL, m, p,knots) {
 
 
 
-
-
-  #   cat("\n")
-  #   cat("Call: \n")
-  #   cat("Cox(formula=Surv(")
-  #
-  #   if (length(Type)==3){
-  #     cat(Type[1])
-  #     cat(",")
-  #     cat(Type[2])
-  #     cat(",")
-  #     cat(Type[3])}
-  #
-  #   if (length(Type)==2){
-  #     cat(Type[1])
-  #     cat(",")
-  #     cat(Type[2])
-  #   }
-  #
-  #
-  #   cat(")~")
-  #   for (yu in 1:(length(variables)-1)){
-  #     if (TD[yu]==0 & NL[yu]==0){
-  #       cat(variables[yu])
-  #       cat("+")
-  #     }
-  #     if (TD[yu]==0 & NL[yu]==1){
-  #       cat("NL(")
-  #       cat(variables[yu])
-  #       cat(")+")
-  #     }
-  #     if (TD[yu]==1 & NL[yu]==0){
-  #       cat("TD(")
-  #       cat(variables[yu])
-  #       cat(")+")
-  #     }
-  #     if (TD[yu]==1 & NL[yu]==1){
-  #       cat("NL(")
-  #       cat(variables[yu])
-  #       cat(")+")
-  #       cat("TD(")
-  #       cat(variables[yu])
-  #       cat(")+")}
-  #   }
-  #   if (TD[length(variables)]==0 & NL[length(variables)]==0){
-  #     cat(variables[length(variables)])
-  #     cat(")")
-  #   }
-  #   if (TD[length(variables)]==0 & NL[length(variables)]==1){
-  #     cat("NL(")
-  #     cat(variables[length(variables)])
-  #     cat("))")
-  #   }
-  #   if (TD[length(variables)]==1 & NL[length(variables)]==0){
-  #     cat("TD(")
-  #     cat(variables[length(variables)])
-  #     cat("))")
-  #   }
-  #   if (TD[length(variables)]==1 & NL[length(variables)]==1){
-  #     cat("NL(")
-  #     cat(variables[length(variables)])
-  #     cat(")+")
-  #     cat("TD(")
-  #     cat(variables[length(variables)])
-  #     cat("))")
-  #   }
-  #   cat("\n")
-  #   cat("Using splines of degree ")
-  #   cat(p)
-  # #   cat(" and ")
-  # #   cat(m)
-  # #   if (m==1) {cat(" knot")} else {cat(" knots")}
-  # #   cat("\n")
-  # #   cat("\n")
-  # #
-
   Rescox<-matrix(ncol=6,nrow=sum(2*(NL+TD==2)+1*(NL+TD!=2)) )
   colnames(Rescox)<-c("","coef","exp(coef)","se(coef)","z","p")
   rownames(Rescox)<-rep(c(""),sum(2*(NL+TD==2)+1*(NL+TD!=2)))
@@ -170,23 +94,6 @@ CoxFlex<-function (data, Type, variables, TD, NL, m, p,knots) {
       Rescox[indexrescox,6]<-round(TDtest[yu],3)
     }
   }
-  #   print(Rescox,quote=F)
-  #   cat("\n")
-  #
-  #   cat("Partial log-likelihood: ")
-  #   cat(res_principal$Partial_Log_Likelihood)
-  #   cat("\n")
-  #   cat("\n")
-  #   cat("Number of events: ")
-  #   cat(res_principal$Number_events)
-  #   cat("\n")
-  #   cat("\n")
-  #   cat("Number of parameters to estimate in the model: ")
-  #   cat(res_principal$Number_of_parameters)
-  #   cat("\n")
-  #   cat("\n")
-
-  # list(model = res_principal, coef=suppressWarnings(as.numeric(Rescox[,2])),var=suppressWarnings((as.numeric(Rescox[,2]))^2),pvalue=suppressWarnings(as.numeric(Rescox[,6])))
 
 
 

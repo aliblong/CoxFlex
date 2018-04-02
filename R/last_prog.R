@@ -16,7 +16,7 @@ last_prog<-function (data, Type, variables, TD, NL, m, p,knots=-999) {
   nonpara <- TD + NL
 
 
-  V <- length(variables) # number of total covariates
+  V <- length(variables)
 
   variablesNEW<-match(variables,names(data))
   TypeNEW<-match(Type,names(data))
@@ -27,14 +27,14 @@ last_prog<-function (data, Type, variables, TD, NL, m, p,knots=-999) {
 
 
   if (is.matrix(knots)==FALSE){ ## if not user defined knots
-    if (is.numeric(knots)==TRUE & knots==-999) { ## if the knots is set as default
+    if (is.numeric(knots)==TRUE & knots==-999) {
       for (i in 1:V) {
-        knotsNEW[i, ] <- c(rep(min(data[, variables[i]]), p + 1), ## place the first p+1 exterior knots at the min(variables[i])
-                           stats::quantile(data[, variables[i]], probs = listeprobaquantile), ## place the interior knots at stats::quantile
-                           seq(max(data[, variables[i]]), max(data[, variables[i]])+p, 1)) ### place the last p+1 exterior knots equally spaced between (max(variables[i]), ...+p)
+        knotsNEW[i, ] <- c(rep(min(data[, variables[i]]), p + 1),
+                           stats::quantile(data[, variables[i]], probs = listeprobaquantile),
+                           seq(max(data[, variables[i]]), max(data[, variables[i]])+p, 1))
       }
-      knotsNEW[V + 1, ] <- c(rep(0, p + 1), ## place the exterior knots for time at 0
-                             stats::quantile(data[data[, TypeNEW[3]] == 1, TypeNEW[2]], probs = listeprobaquantile), ### place the interior knots at stats::quantile
+      knotsNEW[V + 1, ] <- c(rep(0, p + 1),
+                             stats::quantile(data[data[, TypeNEW[3]] == 1, TypeNEW[2]], probs = listeprobaquantile),
                              seq(max(data[data[,TypeNEW[3]] == 1, TypeNEW[2]]), max(data[data[, TypeNEW[3]] ==1, TypeNEW[2]]) + p, 1))
     }
   }
@@ -72,8 +72,7 @@ last_prog<-function (data, Type, variables, TD, NL, m, p,knots=-999) {
 
   data <- as.matrix(data)
   listeT <- c(0, sort(unique(data[data[, TypeNEW[3]] == 1, TypeNEW[2]])))
-  ncol <- dim(data)[2] # number of coloum
-
+  ncol <- dim(data)[2]
 
 
   X <- split(data, data[, 1])
@@ -121,9 +120,7 @@ last_prog<-function (data, Type, variables, TD, NL, m, p,knots=-999) {
 
 
 
-
-
-  nbonlyTD <- sum((NL == 0 & TD == 1)) # no NL only TD
+  nbonlyTD <- sum((NL == 0 & TD == 1))
   if (nbonlyTD != 0) {
     for (k in 1:nbonlyTD) {
       flag<-dim(QWR)[2]+1
@@ -152,10 +149,7 @@ last_prog<-function (data, Type, variables, TD, NL, m, p,knots=-999) {
     vrais <- c(vrais, modX$loglik[2])
 
 
-
-
-
-    mod<-modX ## estimates of NL effects
+    mod<-modX
     tt2<-tt
     VV<-matrix(ncol=nbNLTD*(m+p+1),nrow=dim(QWR)[1])
 
@@ -174,12 +168,9 @@ last_prog<-function (data, Type, variables, TD, NL, m, p,knots=-999) {
 
 
     diff<-1
-    #w<-1
-    #w<-0
-    while(diff>0.00001){ ## ACE algorithm until converge
-      #cat(w,"\n")
 
-      #if (w%%2==0){
+    while(diff>0.00001){
+
       mod<-modX
       tt2<-tt
       VV<-matrix(ncol=nbNLTD*(m+p),nrow=dim(QWR)[1])
@@ -212,8 +203,7 @@ last_prog<-function (data, Type, variables, TD, NL, m, p,knots=-999) {
       modX<-survival::coxph(eval(parse(text=substr(tt2,13,nchar(tt2)-1))),method="efron")
       vrais<-c(vrais,modX$loglik[2])
       diff<-abs(vrais[length(vrais)]-vrais[length(vrais)-2])
-      #w<-w+1
-      #}
+
 
     }
 
@@ -229,7 +219,7 @@ last_prog<-function (data, Type, variables, TD, NL, m, p,knots=-999) {
   rm(QWR, X, matX)
 
   MAT <- matrix(ncol = V, nrow = 1 + m + p + m + p + 1)
-  if (i1 != 0) { #if no NL and TD
+  if (i1 != 0) {
     for (j in 1:i1) {
       MAT[1, j] <- modX$coef[j]
     }
