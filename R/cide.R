@@ -1,0 +1,8 @@
+install.packages("devtools")
+install.packages("roxygen2")
+devtools::use_package("survival")
+devtools::use_package("splines")
+devtools::use_package("stats")
+devtools::load_all()
+devtools::document()
+exportPattern("^[[:alpha:]]+")

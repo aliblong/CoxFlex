@@ -1,0 +1,16 @@
+Package: FlexSurv
+Type: Package
+Title: Flexible Modeling of the Time-to-event Data
+Version: 0.1.0
+Author: Yishu Wang, Michal Abrahamowicz
+Maintainer: Yishu Wang <yishu.wang@mail.mcgill.ca>
+Description: Use regression B-spline to estimate the time-dependent and non-linear effects of 
+       time-varying continuous covariates in time-to-event analysis.
+License: GPL-3
+Depends: R (>= 3.1.0)
+Encoding: UTF-8
+LazyData: true
+Imports: survival,
+    splines,
+    stats
+RoxygenNote: 6.0.1
