@@ -11,6 +11,8 @@
 #' @param m The number of interior knots used in the regression B-spline
 #' @param p The degree of the regression B-spline
 #' @param knots Default value is -999
+#' @return    Returns a list of the following items:
+#' @return Partial_Log_Likelihood partial loglikelihood of the final model
 #' @export
 
 

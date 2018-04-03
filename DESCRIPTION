@@ -1,4 +1,4 @@
-Package: FlexSurv
+Package: CoxFlex
 Type: Package
 Title: Flexible Modeling of the Time-to-event Data
 Version: 0.1.0
