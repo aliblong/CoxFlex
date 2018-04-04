@@ -34,6 +34,8 @@ effect. Only takes three values:\cr
 
 \item{p}{The degree of the regression B-spline, default value is 2}
 
+\item{alpha_back}{significane level used in the backward elemination process}
+
 \item{knots}{Default value is -999}
 }
 \description{

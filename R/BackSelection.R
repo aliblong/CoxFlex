@@ -18,6 +18,7 @@
 #'           -1 = force the linear effect of the corresponding variable \cr
 #' @param m The number of interior knots used in the regression B-spline, default value is 1
 #' @param p The degree of the regression B-spline, default value is 2
+#' @param alpha_back significane level used in the backward elemination process
 #' @param knots Default value is -999
 #' @export
 
