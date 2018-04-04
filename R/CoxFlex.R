@@ -12,7 +12,18 @@
 #' @param p The degree of the regression B-spline
 #' @param knots Default value is -999
 #' @return    Returns a list of the following items:
-#' @return Partial_Log_Likelihood partial loglikelihood of the final model
+#' @return \item{PLL}{  partial loglikelihood of the final model}
+#'         \item{NP}{  number of parameters estimated in the model}
+#'         \item{NE}{  number of events in the dataset}
+#'         \item{knots_covariates}{knots for splines of NL effects for corresponding covariates}
+#'         \item{knots_time}{knots for splines of the TD effect}
+#'         \item{coefficients_splines_NL}{estimated splines coefficients for NL effects}
+#'         \item{coefficients_splines_TD}{estimated splines coefficients for TD effects}
+#'         \item{variables}{name of the covariates in the order they are adjusted in the model}
+#'         \item{coef}{estimated coefficients for covariates not having TD and NL effects}
+#'         \item{sd}{standard errors of the corresponding estimated coefficients}
+#'         \item{pval}{p-values for corresponding estimated effects}
+#'
 #' @export
 
 
@@ -99,13 +110,20 @@ CoxFlex<-function (data, Type, variables, TD, NL, m, p,knots) {
 
 
 
-  list(Partial_Log_Likelihood = res_principal$Partial_Log_Likelihood, Number_of_parameters = res_principal$Number_of_parameters, Number_events=res_principal$Number_events ,
-       Number_knots = res_principal$Number_knots, Degree_of_splines = res_principal$Degree_of_splines,
+  list(PLL = res_principal$Partial_Log_Likelihood,
+       NP = res_principal$Number_of_parameters,
+       NE=res_principal$Number_events ,
+      # Number_knots  = res_principal$Number_knots, Degree_of_splines = res_principal$Degree_of_splines,
        knots_covariates = res_principal$knots_covariates,
        knots_time = res_principal$knots_time,
-       coefficients = res_principal$coefficients, Standard_Error=res_principal$Standard_Error,
-       coefficients_splines_NL = res_principal$coefficients_splines_NL,coefficients_splines_TD = res_principal$coefficients_splines_TD,variables=res_principal$variables,
-       coef=suppressWarnings(as.numeric(Rescox[,2])),var=suppressWarnings((as.numeric(Rescox[,2]))^2),pvalue=suppressWarnings(as.numeric(Rescox[,6])))
+      # coefficients = res_principal$coefficients,
+      # Standard_Error=res_principal$Standard_Error,
+       coefficients_splines_NL = res_principal$coefficients_splines_NL,
+       coefficients_splines_TD = res_principal$coefficients_splines_TD,
+       variables=res_principal$variables,
+       coef=suppressWarnings(as.numeric(Rescox[,2])),
+       sd=suppressWarnings((as.numeric(Rescox[,2]))),
+       pvalue=suppressWarnings(as.numeric(Rescox[,6])))
 
 
 

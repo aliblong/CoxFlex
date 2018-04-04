@@ -26,6 +26,21 @@ effect or not (1=Yes, 0=No)}
 
 \item{knots}{Default value is -999}
 }
+\value{
+Returns a list of the following items:
+
+\item{PLL}{  partial loglikelihood of the final model}
+        \item{NP}{  number of parameters estimated in the model}
+        \item{NE}{  number of events in the dataset}
+        \item{knots_covariates}{knots for splines of NL effects for corresponding covariates}
+        \item{knots_time}{knots for splines of the TD effect}
+        \item{coefficients_splines_NL}{estimated splines coefficients for NL effects}
+        \item{coefficients_splines_TD}{estimated splines coefficients for TD effects}
+        \item{variables}{name of the covariates in the order they are adjusted in the model}
+        \item{coef}{estimated coefficients for covariates not having TD and NL effects}
+        \item{sd}{standard errors of the corresponding estimated coefficients}
+        \item{pval}{p-values for corresponding estimated effects}
+}
 \description{
 Estimate the TD and/or NL effect(s) of continuous covariate(s) in time-to-event analysis
 }

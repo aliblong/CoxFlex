@@ -6,7 +6,7 @@ Author: Yishu Wang, Michal Abrahamowicz
 Maintainer: Yishu Wang <yishu.wang@mail.mcgill.ca>
 Description: Use regression B-spline to estimate the time-dependent and non-linear effects of 
        time-varying continuous covariates in time-to-event analysis.
-License: GPL-3
+License: GPL(>=2)
 Depends: R (>= 3.1.0)
 Encoding: UTF-8
 LazyData: true

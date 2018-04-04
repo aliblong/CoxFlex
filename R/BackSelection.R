@@ -1,3 +1,29 @@
+#' Build the model through backward selection
+#'
+#' @param data A data frame in the long (interval) format with one line per unit of time.
+#' @param Type A vector consisting the name of variables representing the start and stop of each
+#'             time interval and event indicator. e.g. c("start","stop","event").
+#' @param variables A vector consisting the name of varialbes that will be adjusted in the model.
+#' @param continuous A vector of binary indicators representing whether the corresponding variables
+#'                   are continuous variables (1=Yes, 0=NO)
+#' @param TD A vector representing whether to force the corresponding variable having a time-dependent
+#'           effect. Only takes three values:\cr
+#'           1 = force TD effect of the corresponding variable\cr
+#'           0 = do not force any effect to the corresponding variable \cr
+#'           -1 = force the PH effect of the corresponding variable \cr
+#' @param NL A vector representing whether to force the corresponding variable having a non-linear
+#'           effect. Only takes three values:\cr
+#'           1 = force NL effect of the corresponding variable \cr
+#'           0 = do not force any effect to the corresponding variable \cr
+#'           -1 = force the linear effect of the corresponding variable \cr
+#' @param m The number of interior knots used in the regression B-spline, default value is 1
+#' @param p The degree of the regression B-spline, default value is 2
+#' @param knots Default value is -999
+#' @export
+
+
+
+
 BackSelection<-function(data,Type,variables,continuous, TD, NL,m=1,p=2,alpha_back=0.05,knots=-999){
 
 
