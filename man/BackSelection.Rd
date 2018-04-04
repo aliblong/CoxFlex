@@ -41,3 +41,6 @@ effect. Only takes three values:\cr
 \description{
 Build the model through backward selection
 }
+\note{
+Note that the TD and NL arguments have different meanings than that in the CoxFlex()
+}

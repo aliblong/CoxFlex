@@ -23,7 +23,7 @@
 #'         \item{coef}{estimated coefficients for covariates not having TD and NL effects}
 #'         \item{sd}{standard errors of the corresponding estimated coefficients}
 #'         \item{pval}{p-values for corresponding estimated effects}
-#'
+#'@note Note that the TD and NL arguments have different meanings than that in the BackSelection()
 #' @export
 
 

@@ -20,6 +20,7 @@
 #' @param p The degree of the regression B-spline, default value is 2
 #' @param alpha_back significane level used in the backward elemination process
 #' @param knots Default value is -999
+#' @note Note that the TD and NL arguments have different meanings than that in the CoxFlex()
 #' @export
 
 
