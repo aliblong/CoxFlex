@@ -1,6 +1,6 @@
 Package: CoxFlex
 Type: Package
-Title: Flexible Modeling of the Time-to-event Data
+Title: Flexible Modeling of the Time-to-Event Data
 Version: 0.1.0
 Author: Yishu Wang, Michal Abrahamowicz
 Maintainer: Yishu Wang <yishu.wang@mail.mcgill.ca>
