@@ -1,0 +1,23 @@
+---
+title: "cran-comments"
+author: "yishu.wang"
+date: "4/3/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Test environments
+* local OS X install, R 3.4.4
+* ubuntu 12.04 (on travis-ci), R 3.1.2
+* win-builder (devel and release)
+
+## R CMD check results
+There were 0 ERRORs, 0 WARNINGs, and 0 notes
+
+
+## Downstream dependencies
+I have not checked the downstream dependencies 
+
