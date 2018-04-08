@@ -51,5 +51,5 @@ Returns a list of the following items:
 Estimate the TD and/or NL effect(s) of time-varying continuous covariate(s) in time-to-event analysis
 }
 \note{
-Note that the TD and NL arguments have different meanings than that in the BackSelection()
+Note that the TD and NL arguments have different meanings than that in the \code{\link{BackSelection}}
 }
