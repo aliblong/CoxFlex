@@ -1,5 +1,6 @@
 #' Build the model through backward selection
 #'
+#'
 #' @param data A data frame in the long (interval) format with one line per unit of time.
 #' @param Type A vector consisting the name of variables representing the start and stop of each
 #'             time interval and event indicator. e.g. c("start","stop","event").
@@ -20,7 +21,7 @@
 #' @param p The degree of the regression B-spline, default value is 2
 #' @param alpha_back significane level used in the backward elemination process
 #' @param knots Default value is -999
-#' @note Note that the TD and NL arguments have different meanings than that in the CoxFlex()
+#' @note Note that the TD and NL arguments have different meanings than that in the \code{\link{CoxFlex}} and \code{\link{tvcFlex}}
 #' @export
 
 
